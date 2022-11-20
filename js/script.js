@@ -1,8 +1,11 @@
+// Main function
 function main() {
+
+    // Page navigation
+
     let activePageId = "pageHome";
 
     const boxes = document.querySelectorAll('.pageLink');
-
     boxes.forEach(box => {
         box.addEventListener('click', function handleClick(event) {
             document.getElementById(activePageId).style.display = "none"
@@ -11,10 +14,11 @@ function main() {
         });
     });
 
-    // Table create
+    // Table
     let pathCupcake = "pics/products/cupcake";
     let pathWeddingcake = "pics/products/weddingcake";
 
+    // Content of Cupcake table
     let tableCupcake = [
         {
             image: pathCupcake + "/" + "cc1.jpg", title: 'Cupcake 1', price: '$1.00'
@@ -42,6 +46,7 @@ function main() {
         },
     ];
 
+    // Content of Wedding cake table
     let tableWeddingcake = [
         {
             image: pathWeddingcake + "/" + "wc1.jpg", title: 'Wedding cake 1', price: '$10.00'
@@ -69,10 +74,13 @@ function main() {
         },
     ];
 
+    // Create Cupcake table
     makeTable("productTableCupCake", tableCupcake);
+    // Create Wedding cake table
     makeTable("productTableWeddingCake", tableWeddingcake);
 }
 
+// Create table
 function makeTable(tableId, tableData) {
 
     let table = document.getElementById(tableId);
@@ -105,8 +113,11 @@ function makeTable(tableId, tableData) {
     table.appendChild(tr);
 }
 
+// IIFE
 (function () {
+    // Add eventlistener for onload
     window.addEventListener('load', function () {
+        // Run main when page is loaded
         main();
     })
 })();
